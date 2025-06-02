@@ -6,32 +6,40 @@
     </div>
 
     <div class="mb-8">
-      <img src="#" alt="Banner" class="w-full rounded-xl shadow-md" />
+      <img src="https://via.placeholder.com/1200x300?text=Banner+da+Loja"
+           alt="Banner"
+           class="w-full rounded-xl shadow-md" />
     </div>
 
     <div class="container mx-auto px-4 py-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-        <div
+        <router-link
           v-for="produto in produtos"
           :key="produto.id"
-          class="bg-white rounded-lg shadow-md p-4 text-center">
-          <img :src="produto.thumbnail" alt="Imagem do Produto" class="w-full h-32 object-cover rounded mb-2" />
+          :to="`/produto/${produto.id}`"
+          class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition">
+
+          <img :src="produto.thumbnail"
+               alt="Imagem do Produto"
+               class="w-full h-32 object-cover rounded mb-2" />
           <h2 class="font-semibold text-lg">{{ produto.title }}</h2>
           <p class="text-green-600 font-bold">R$ {{ produto.price }}</p>
-        </div>
+
+        </router-link>
       </div>
 
       <div class="flex justify-center mt-6 gap-4">
         <button
           @click="paginaAtual--"
           :disabled="paginaAtual === 1"
-          class="px-4 py-2 bg-rose-500 text-white transition duration-300 transform hover:bg-rose-700 rounded disabled:bg-rose-200">
+          class="px-4 py-2 bg-rose-500 text-white hover:bg-rose-700 rounded disabled:bg-rose-200">
           Anterior
         </button>
+
         <button
           @click="paginaAtual++"
           :disabled="paginaAtual === totalPaginas"
-          class="px-4 py-2 bg-rose-500 text-white transition duration-300 transform hover:bg-rose-700 rounded disabled:bg-gray-200">
+          class="px-4 py-2 bg-rose-500 text-white hover:bg-rose-700 rounded disabled:bg-rose-200">
           Próximo
         </button>
       </div>
@@ -62,3 +70,6 @@ const carregarProdutos = async () => {
 onMounted(carregarProdutos)
 watch(paginaAtual, carregarProdutos)
 </script>
+
+<style scoped>
+</style>
