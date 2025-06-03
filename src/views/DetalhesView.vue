@@ -12,7 +12,8 @@
           <p class="text-gray-600 mb-2 capitalize">Categoria: <strong class="text-rose-600">{{ product.category }}</strong></p>
           <p class="text-lg mb-4">{{ product.description }}</p>
           <p class="text-2xl font-bold text-black mb-4">R$ {{ product.price }}</p>
-          <p class="text-xs font-bold text-gray-600 mb-4">Avaliação: {{ product.rating }}</p>
+          <p class="text-xs font-bold text-gray-600 mb-2">Avaliação: {{ product.rating }}</p>
+          <p class="text-gray-600 mb-2 text-xs">Em estoque: {{ product.stock }}</p>
 
           <button
             @click="addToCart(product)"

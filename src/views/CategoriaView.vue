@@ -7,7 +7,7 @@
         <p>Carregando produtos...</p>
       </div>
 
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6">
         <div
           v-for="produto in produtos"
           :key="produto.id"
@@ -16,6 +16,7 @@
             class="w-full h-32 object-cover rounded mb-2" />
           <h2 class="font-semibold text-lg">{{ produto.title }}</h2>
           <p class="text-rose-600 font-bold">R$ {{ produto.price }}</p>
+          <p class="text-gray-600 text-xs">Em estoque: {{ produto.stock }}</p>
           <router-link
             :to="`/produto/${produto.id}`"
             class="inline-block mt-2 px-4 py-2 bg-rose-500 text-white rounded hover:bg-rose-700">
