@@ -4,9 +4,10 @@
       <h1>Encontre os melhores produtos, com preços que cabem no seu bolso</h1>
     </div>
 
-    <nav class="flex items-center justify-between px-6 py-6 bg-orange-50 shadow-sm relative">
+    <nav class="flex items-center justify-between px-6 py-6 shadow-sm relative">
       
       <div class="flex space-x-4">
+        <h1>Filtrar por:</h1>
         <router-link
           to="/categoria/beauty"
           class="font-bold text-neutral-800 transition duration-300 transform hover:text-rose-800 hover:scale-110">

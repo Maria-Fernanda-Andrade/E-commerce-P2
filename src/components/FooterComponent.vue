@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-orange-50 text-sm text-gray-800 relative">
+    <div class="text-sm text-gray-800 relative">
         <div class="flex justify-center items-center h-40 flex-col text-center">
             <h1 class="text-xl pb-4 text-rose-700 font-semibold">Seu novo jeito de comprar online.</h1>
             <img src="/logo3.png" alt="Logo" class="h-20 w-auto" />

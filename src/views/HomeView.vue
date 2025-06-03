@@ -1,16 +1,11 @@
 <template>
-  <div>
-    <div class="text-center py-6">
-      <h1 class="text-3xl font-bold text-gray-800">Bem-vindo à nossa loja!</h1>
-      <p class="text-gray-600 mt-2">Confira nossos produtos incríveis abaixo:</p>
-    </div>
+  <img src="/public/banner3.png" alt="Banner">
+  <div class="text-center bg-gray-100 py-16">
+    <h1 class="text-3xl font-bold text-gray-800">Bem-vindo à nossa loja!</h1>
+    <p class="text-gray-600 mt-2">Confira nossos produtos incríveis abaixo:</p>
+  </div>
 
-    <div class="mb-8">
-      <img src="https://via.placeholder.com/1200x300?text=Banner+da+Loja"
-           alt="Banner"
-           class="w-full rounded-xl shadow-md" />
-    </div>
-
+  <div class="bg-gray-100">
     <div class="container mx-auto px-4 py-6">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <router-link
@@ -19,29 +14,27 @@
           :to="`/produto/${produto.id}`"
           class="bg-white rounded-lg shadow-md p-4 text-center hover:shadow-lg transition">
 
-          <img :src="produto.thumbnail"
-               alt="Imagem do Produto"
-               class="w-full h-32 object-cover rounded mb-2" />
+          <img :src="produto.thumbnail" alt="Imagem do Produto" class="w-full h-32 object-cover rounded mb-2"/>
           <h2 class="font-semibold text-lg">{{ produto.title }}</h2>
-          <p class="text-green-600 font-bold">R$ {{ produto.price }}</p>
+          <p class="text-rose-600 font-bold">R$ {{ produto.price }}</p>
+          <p class="text-gray-600 text-xs">Em estoque: {{ produto.stock }}</p>
+          </router-link>
+        </div>
 
-        </router-link>
-      </div>
+        <div class="flex justify-center mt-6 gap-4">
+          <button
+            @click="paginaAtual--"
+            :disabled="paginaAtual === 1"
+            class="px-4 py-2 bg-rose-500 text-white hover:bg-rose-700 rounded disabled:bg-rose-200">
+            Anterior
+          </button>
 
-      <div class="flex justify-center mt-6 gap-4">
-        <button
-          @click="paginaAtual--"
-          :disabled="paginaAtual === 1"
-          class="px-4 py-2 bg-rose-500 text-white hover:bg-rose-700 rounded disabled:bg-rose-200">
-          Anterior
-        </button>
-
-        <button
-          @click="paginaAtual++"
-          :disabled="paginaAtual === totalPaginas"
-          class="px-4 py-2 bg-rose-500 text-white hover:bg-rose-700 rounded disabled:bg-rose-200">
-          Próximo
-        </button>
+          <button
+            @click="paginaAtual++"
+            :disabled="paginaAtual === totalPaginas"
+            class="px-4 py-2 bg-rose-500 text-white hover:bg-rose-700 rounded disabled:bg-rose-200">
+            Próximo
+          </button>
       </div>
     </div>
   </div>
