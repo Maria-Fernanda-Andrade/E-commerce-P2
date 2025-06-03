@@ -14,7 +14,10 @@
           <p class="text-2xl font-bold text-black mb-4">R$ {{ product.price }}</p>
           <p class="text-xs font-bold text-gray-600 mb-4">Avaliação: {{ product.rating }}</p>
 
-          <button class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700">
+          <button
+            @click="addToCart(product)"
+            class="bg-pink-600 text-white px-4 py-2 rounded hover:bg-pink-700"
+          >
             Adicionar ao Carrinho
           </button>
         </div>
@@ -32,8 +35,8 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 import axios from 'axios'
 
-const route = useRoute()
 const product = ref(null)
+const route = useRoute()
 
 const fetchProduct = async () => {
   try {
@@ -47,4 +50,21 @@ const fetchProduct = async () => {
 onMounted(() => {
   fetchProduct()
 })
+
+const cart = ref(JSON.parse(localStorage.getItem('cart')) || [])
+
+const saveCart = () => {
+  localStorage.setItem('cart', JSON.stringify(cart.value))
+}
+
+const addToCart = (item) => {
+  const exists = cart.value.find(p => p.id === item.id)
+  if (exists) {
+    exists.quantity++
+  } else {
+    cart.value.push({ ...item, quantity: 1 })
+  }
+  saveCart()
+  alert('Produto adicionado ao carrinho!')
+}
 </script>
