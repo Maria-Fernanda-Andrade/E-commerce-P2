@@ -15,7 +15,7 @@
         <h1 class="text-lg text-rose-700 font-semibold">Seu novo jeito de comprar online.</h1>
         <img src="/logo3.png" alt="Logo" class="h-20 w-auto"/>
         <p class="pt-6 text-xs">Veja as Funcionalidades do nosso site aqui</p>
-        <a href="#"><img src="https://cdn.pixabay.com/photo/2021/05/22/11/38/yt-6273367_1280.png" alt="youtube" class="h-5 w-auto"/></a>
+        <a href="https://youtu.be/mhZnqWYmIj0?si=nmKMa7P2PJ_jtyux"><img src="https://cdn.pixabay.com/photo/2021/05/22/11/38/yt-6273367_1280.png" alt="youtube" class="h-5 w-auto"/></a>
       </div>
 
       <div class="flex flex-col items-end text-xs text-right">
